@@ -1,0 +1,52 @@
+header {
+	z-index: 100;
+	position: sticky;
+	top: 0;
+	background-color: #fff;
+	> .header-wrapper {
+		padding: 0 82px;
+		.logo {
+			width: 160px;
+			height: 80px;
+			font-size: 0;
+			background-image: url(../../../assets/images/logo_wible_lg.svg);
+			background-size: 100%;
+			background-position: 0 50%;
+			background-repeat: no-repeat;
+		}
+		> nav > ul {
+			> li {
+				margin: 0 16px;
+				> a {
+					position: relative;
+					display: block;
+					padding: 0 4px;
+					font-size: 18px;
+					line-height: 80px;
+					font-weight: 600;
+					// border-bottom: 4px solid var(--mint-900);
+				}
+				> a:after {
+					content: "";
+					position: absolute;
+					left: 0;
+					bottom: 0;
+					width: 0;
+					height: 4px;
+					background-color: var(--mint-900);
+					opacity: 0.4;
+					transition: width 0.4s var(--cubic-bezier-primary);
+				}
+				@media (hover: hover) and (pointer: fine) {
+					> a:hover:after {
+						width: 100%;
+					}
+				}
+			}
+			> li.active > a:after {
+				width: 100%;
+				opacity: 1;
+			}
+		}
+	}
+}

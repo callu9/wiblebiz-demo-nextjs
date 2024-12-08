@@ -1,0 +1,78 @@
+@use "reset";
+@use "layout";
+@font-face {
+	font-display: swap;
+	font-family: Kia Signature Fix;
+	src: url(../assets/fonts/KiaSignatureFixRegular.woff2) format("woff2");
+	font-weight: 400;
+}
+@font-face {
+	font-display: swap;
+	font-family: Kia Signature Fix;
+	src: url(../assets/fonts/KiaSignatureFixBold.woff2) format("woff2");
+	font-weight: 600;
+}
+:root {
+	--max-width: 1660px;
+	--line-height-sm: 1.4;
+	--line-height-md: 1.6;
+	--line-height-lg: 1.8;
+	--cubic-bezier-primary: cubic-bezier(1, 0, 0.2, 1);
+	--mint-900: #70d7bf;
+	--mint-700: #8ddfcc;
+	--midnight-900: #05141f;
+	--midnight-100: #cdd0d2;
+	--red: #ff0900;
+	--blue: #4296e4;
+	--gray-700: #37434c;
+	--gray-500: #697278;
+	--gray-400: #82898f;
+	--gray-300: #b4b9bc;
+	--gray-200: #cdd0d2;
+	--gray-100: #e6e8e9;
+	--gray-50: #f6f6f9;
+	--gray-10: #f8f8f8;
+}
+@media (max-width: 743px) {
+	:root {
+		font-size: 14px;
+	}
+}
+body {
+	color: var(--foreground);
+	background: var(--background);
+	font-family: Kia Signature Fix, Arial, sans-serif, Hevetica;
+	color: var(--midnight-900);
+}
+* {
+	box-sizing: border-box;
+	padding: 0;
+	margin: 0;
+}
+a {
+	color: inherit;
+	text-decoration: none;
+}
+a,
+button {
+	cursor: pointer;
+}
+body,
+button,
+input,
+select,
+textarea {
+	font-family: Kia Signature Fix, Arial, sans-serif, Hevetica;
+	color: var(--midnight-900);
+}
+input,
+select,
+textarea {
+	outline: none;
+}
+.container {
+	padding: 0 48px;
+	> .content {
+		margin: 0 292px;
+	}
+}

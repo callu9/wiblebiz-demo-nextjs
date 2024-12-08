@@ -1,0 +1,51 @@
+.grid {
+	display: grid;
+	justify-content: center;
+	align-items: center;
+}
+.flex {
+	display: flex;
+	flex-direction: row;
+	justify-content: center;
+	align-items: center;
+}
+$justify-list: (
+	"left": flex-start,
+	"right": flex-end,
+	"center": center,
+	"sides": space-between,
+	"evenly": space-evenly,
+);
+@each $name, $justify in $justify-list {
+	.grid.#{$name},
+	.flex.#{$name} {
+		justify-content: $justify;
+	}
+}
+$align-list: (
+	"upper": flex-start,
+	"lower": flex-end,
+	"stretch": stretch,
+);
+@each $name, $align in $align-list {
+	.grid.#{$name},
+	.flex.#{$name} {
+		align-items: $align;
+	}
+}
+.flex.upper-lower,
+.grid.upper-lower {
+	flex-direction: column;
+}
+$spacing-list: 0, 2, 4, 8, 12, 16, 20, 24, 32, 40, 56;
+@each $spacing in $spacing-list {
+	.gap-#{$spacing} {
+		gap: #{$spacing}px;
+	}
+}
+$radius-list: 0, 4, 8, 12, 16;
+@each $radius in $radius-list {
+	.radius-#{$radius} {
+		border-radius: #{$radius}px;
+	}
+}
