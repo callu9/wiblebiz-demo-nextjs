@@ -12,12 +12,10 @@ export default function Header() {
 		{ text: "새소식", href: "/news" },
 		{ text: "상담문의", href: "/counsel" },
 	];
-
 	useEffect(() => {
 		const idx = MENU_LIST.findIndex((menu) => menu.href === window.location.pathname);
 		setMenuIdx(idx);
-	}, [window.location]);
-
+	}, [window?.location]);
 	return (
 		<header>
 			<div className="header-wrapper flex sides">
@@ -35,13 +33,11 @@ export default function Header() {
 						))}
 					</ul>
 				</nav>
-				{/*
 				<span className="util">
-				<button type="button" className="nav" data-ui-click="nav-toggle">
-				메뉴 열기/닫기
-				</button>
+					<button type="button" className="nav" data-ui-click="nav-toggle">
+						메뉴 열기/닫기
+					</button>
 				</span>
-				*/}
 			</div>
 		</header>
 	);

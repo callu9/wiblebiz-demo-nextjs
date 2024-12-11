@@ -37,7 +37,7 @@ $align-list: (
 .grid.upper-lower {
 	flex-direction: column;
 }
-$spacing-list: 0, 2, 4, 8, 12, 16, 20, 24, 32, 40, 56;
+$spacing-list: 0, 2, 4, 8, 12, 16, 20, 24, 32, 40, 56, 64;
 @each $spacing in $spacing-list {
 	.gap-#{$spacing} {
 		gap: #{$spacing}px;

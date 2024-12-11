@@ -1,5 +1,11 @@
 @use "reset";
+@use "color";
+@use "button";
 @use "layout";
+@use "typography";
+@use "variables";
+@use "icon";
+@use "input";
 @font-face {
 	font-display: swap;
 	font-family: Kia Signature Fix;
@@ -43,20 +49,24 @@ body {
 	background: var(--background);
 	font-family: Kia Signature Fix, Arial, sans-serif, Hevetica;
 	color: var(--midnight-900);
+	> header,
+	footer {
+		padding: 0 130px;
+	}
 }
 * {
 	box-sizing: border-box;
 	padding: 0;
 	margin: 0;
 }
-a {
-	color: inherit;
-	text-decoration: none;
-}
-a,
-button {
-	cursor: pointer;
-}
+// a {
+// 	color: inherit;
+// 	text-decoration: none;
+// }
+// a,
+// button {
+// 	cursor: pointer;
+// }
 body,
 button,
 input,
@@ -64,6 +74,9 @@ select,
 textarea {
 	font-family: Kia Signature Fix, Arial, sans-serif, Hevetica;
 	color: var(--midnight-900);
+	border: 0;
+	padding: 0;
+	margin: 0;
 }
 input,
 select,
@@ -71,8 +84,70 @@ textarea {
 	outline: none;
 }
 .container {
-	padding: 0 48px;
+	min-height: calc(100vh - var(--header-height) - var(--footer-height));
+	overflow: hidden;
+	padding: 0 var(--side-padding) var(--bottom-padding);
 	> .content {
-		margin: 0 292px;
+		max-width: 1240px;
+		margin: 0 auto;
 	}
+	> .content.reduced {
+		max-width: 816px;
+	}
+}
+button {
+	padding: 0;
+	background: none;
+	border: none;
+	cursor: pointer;
+}
+a {
+	color: var(--midnight-900);
+	text-decoration: none;
+	cursor: pointer;
+}
+ul,
+ol {
+	list-style: none;
+	margin: 0;
+	padding: 0;
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p {
+	margin: 0;
+}
+em,
+i,
+address {
+	font-style: normal;
+}
+input::-webkit-input-placeholder {
+	font-weight: 400;
+	color: var(--gray-300);
+	opacity: 1;
+}
+input::-moz-placeholder {
+	font-weight: 400;
+	color: var(--gray-300);
+	opacity: 1;
+}
+textarea::-webkit-input-placeholder {
+	font-weight: 400;
+	color: var(--gray-300);
+	opacity: 1;
+}
+textarea::-moz-placeholder {
+	font-weight: 400;
+	color: var(--gray-300);
+	opacity: 1;
+}
+iframe {
+	display: block;
+	width: 100%;
+	border: none;
 }

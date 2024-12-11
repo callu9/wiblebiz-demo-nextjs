@@ -1,0 +1,39 @@
+// $mint900: #70d7bf;
+// $mint700: #8ddfcc;
+// $midnight900: #05141f;
+// $midnight100: #cdd0d2;
+// $red: #ff0900;
+// $blue: #4296e4;
+// $gray700: #37434c;
+// $gray500: #697278;
+// $gray400: #82898f;
+// $gray300: #b4b9bc;
+// $gray200: #cdd0d2;
+// $gray100: #e6e8e9;
+// $gray50: #f6f6f9;
+// $gray10: #f8f8f8;
+
+.text-primary {
+	color: var(--midnight-900);
+}
+.text-secondary {
+	color: var(--gray-700);
+}
+.text-tertiary {
+	color: var(--gray-500);
+}
+.text-active {
+	color: var(--mint-900);
+}
+.text-inactive {
+	color: var(--midnight-700);
+}
+.surface-primary {
+	background-color: #fff;
+}
+.surface-secondary {
+	background-color: var(--gray-10);
+}
+.surface-tertiary {
+	background-color: var(--gray-50);
+}

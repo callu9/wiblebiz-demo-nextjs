@@ -1,0 +1,222 @@
+/* Inquiry Info */
+.inquiry-info {
+	display: flex;
+	margin: 0 calc(-1 * var(--space-md) / 2);
+	> a {
+		flex: 1;
+		margin: 0 calc(var(--space-md) / 2);
+	}
+	@media (max-width: 743px) {
+		flex-direction: column;
+		> a {
+			justify-content: flex-start;
+		}
+		> a:not(:first-child) {
+			margin-top: 12px;
+		}
+	}
+	@media (min-width: 744px) and (max-width: 1023px) {
+		flex-wrap: wrap;
+		> a:last-child {
+			min-width: calc(100% - var(--space-md));
+			margin-top: var(--space-md);
+		}
+	}
+}
+
+/* Process Info */
+.process-info {
+	display: flex;
+	margin: 0 calc(-1 * var(--space-md) / 2);
+	counter-reset: li;
+	line-height: var(--line-height-sm);
+	> li {
+		flex: 1;
+		margin: 0 calc(var(--space-md) / 2);
+		padding: 0 24px;
+	}
+	.reduced {
+		margin: 0 -12px;
+	}
+	.reduced > li {
+		margin: 0 12px;
+		padding: 0 8px;
+	}
+	> li > .ic {
+		display: block;
+		width: var(--ic-xlg);
+		height: var(--ic-xlg);
+		margin-bottom: 8px;
+	}
+	> li > span {
+		position: relative;
+		display: block;
+	}
+	> li:not(:first-child) > span:before {
+		content: "";
+		position: absolute;
+		left: -36px;
+		top: 0;
+		width: 24px;
+		height: 24px;
+		background: url(../../assets/icon/ic_step_arrow.svg) no-repeat;
+		background-size: auto 100%;
+	}
+	> li > span > strong {
+		display: block;
+		font-size: 18px;
+	}
+	> li > span > strong:before {
+		content: counter(li) ". ";
+		counter-increment: li;
+	}
+	> li > span > em {
+		display: block;
+		margin-top: 8px;
+		font-size: 16px;
+		color: var(--gray-700);
+	}
+	@media (max-width: 1023px) {
+		flex-direction: column;
+		> li {
+			display: flex;
+			padding: 0 !important;
+		}
+		> li:not(:first-child) > span:before {
+			display: none;
+		}
+	}
+	@media (max-width: 743px) {
+		> li:not(:first-child) {
+			margin-top: 20px;
+		}
+		> li > .ic {
+			margin: 0 12px 0 0;
+		}
+		> li > span > strong {
+			font-size: 16px;
+		}
+		> li > span > em {
+			margin-top: 4px;
+			font-size: 14px;
+		}
+	}
+	@media (min-width: 744px) and (max-width: 1023px) {
+		> li:not(:first-child) {
+			margin-top: 24px;
+		}
+		> li > .ic {
+			margin: 0 16px 0 0;
+		}
+	}
+}
+
+/* App Info */
+.app-info {
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: center;
+	overflow: hidden;
+	margin-top: 48px;
+	padding: 32px;
+	border-radius: 16px;
+	background-color: var(--gray-10);
+	> h2 {
+		width: 100%;
+		margin-bottom: 24px;
+		text-align: center;
+		font-size: 24px;
+		line-height: var(--line-height-sm);
+	}
+	> h2 > em {
+		color: var(--mint-900);
+	}
+	> .flex {
+		> a {
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			width: 296px;
+			height: 60px;
+			margin: 0 8px;
+			font-size: 16px;
+			font-weight: 600;
+			background: #fff;
+			border-radius: 8px;
+		}
+		> a:before {
+			content: "";
+			width: 28px;
+			height: 28px;
+			margin-right: 4px;
+			background-repeat: no-repeat;
+			background-size: auto 100%;
+		}
+		> a.gp:before {
+			background-image: url(../../assets/images/logo_googleplay.svg);
+		}
+		> a.as:before {
+			background-image: url(../../assets/images/logo_appstore.svg);
+		}
+	}
+
+	@media (max-width: 743px) {
+		flex-direction: column;
+		align-items: center;
+		padding: 24px;
+		> h2 {
+			margin-bottom: 4px;
+			font-size: 16px;
+		}
+		> .flex {
+			> a {
+				width: 100%;
+				max-width: 264px;
+				height: 48px;
+				margin: 12px 0 0;
+				font-size: 14px;
+			}
+			> a:before {
+				width: 24px;
+				height: 24px;
+			}
+		}
+	}
+	@media (min-width: 744px) and (max-width: 1023px) {
+		> h2 {
+			margin-bottom: 24px;
+			font-size: 20px;
+		}
+		> .flex {
+			> a {
+				width: 264px;
+				height: 56px;
+				font-size: 14px;
+			}
+			> a:before {
+				width: 24px;
+				height: 24px;
+			}
+		}
+	}
+	@media (min-width: 1440px) {
+		margin-top: 64px;
+		padding: 40px;
+		> h2 {
+			margin-bottom: 32px;
+			font-size: 32px;
+		}
+		> .flex {
+			> a {
+				width: 392px;
+				height: 64px;
+				margin: 0 16px;
+				font-size: 18px;
+			}
+			> a:before {
+				width: 32px;
+				height: 32px;
+			}
+		}
+	}
+}

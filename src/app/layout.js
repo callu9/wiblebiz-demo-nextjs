@@ -1,17 +1,6 @@
-import localFont from "next/font/local";
-import "./style/global.scss";
+import Footer from "./components/common/layout/Footer";
 import Header from "./components/common/layout/Header";
-
-// const kiaRegular = localFont({
-// 	src: "./fonts/KiaSignatureFixRegular.woff2",
-// 	variable: "--font-regular",
-// 	weight: "400",
-// });
-// const kiaBold = localFont({
-// 	src: "./fonts/KiaSignatureFixBold.woff2",
-// 	variable: "--font-bold",
-// 	weight: "600",
-// });
+import "./style/global.scss";
 
 export const metadata = {
 	title: "위블 비즈(Wible Biz)",
@@ -22,13 +11,10 @@ export const metadata = {
 export default function RootLayout({ children }) {
 	return (
 		<html lang="en">
-			<body
-			//className={`${kiaRegular.variable} ${kiaBold.variable}`}
-			>
-				<div className="container">
-					<Header />
-					{children}
-				</div>
+			<body>
+				<Header />
+				<div className="container">{children}</div>
+				<Footer />
 			</body>
 		</html>
 	);
