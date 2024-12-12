@@ -13,13 +13,11 @@ pnpm create next-app (project name)
 - 개발 환경
   - [x] Vite 활용해서 직접 구성 or Next.js 세팅하여 진행
 - 구현
-  - [ ] [주어진 화면](https://wiblebiz.kia.com/FAQ)을 최대한 비슷하게 제작
-  - [ ] 스타일링은 전처리기(SASS) 활용
+  - [x] [주어진 화면](https://wiblebiz.kia.com/FAQ)을 최대한 비슷하게 제작
+  - [x] 스타일링은 전처리기(SASS) 활용
 - API
-  - [ ] JSON Server 사용
-  - [ ] 프로젝트 내부에 목업데이터 형태로 가지고 시뮬레이션
+  - [x] 프로젝트 내부에 목업데이터 형태로 가지고 시뮬레이션
     - 필요한 API 응답 결과는 주어진 화면 내 개발자도구(크롬 기준) > 네트워크 탭 > Fetch/XHR 에서 참고
-  - [ ] Fetch 관련 오픈소스(React Query) or 네이티브 Fetch 사용
 
 ## Todo ✅
 
@@ -30,16 +28,54 @@ pnpm create next-app (project name)
     - [x] 탭
     - [x] 토글
     - [x] 페이지네이션
-    - [ ] 필터링 구현 (검색어 입력 및 초기화)
+    - [x] 필터링 구현 (검색어 입력 및 초기화)
   - 상세 조회
     - [x] 아코디언 구현
     - [ ] 애니메이션 구현
   - 기타
     - [x] SEO 적용
-    - [ ] 서비스 문의: `/counsel` 페이지 이동
-    - [ ] 파일 다운로드
-    - [ ] 이용 프로세스 안내
-    - [ ] 앱 다운로드 안내
+    - [x] 서비스 문의: `/counsel` 페이지 이동
+    - [x] 파일 다운로드
+    - [x] 이용 프로세스 안내
+    - [x] 앱 다운로드 안내
+
+
+### 2. 우선순위 중 ⭐️⭐️⭐️
+
+#### (1) 상담 문의 `/counsel`
+  - [ ] 입력 및 초기화
+  - [ ] 제출 
+
+## TIL 📑
+  - `generateMetadata`: page props에 따른 dynamic metadata 생성을 위해 사용
+```
+1) export async function generateMetadata(params, searchParams, parent) {}
+
+  - params: 페이지의 동적 경로 매개변수
+  - searchParams: 페이지의 동적 쿼리 매개변수
+  - parent: 상위 메타데이터
+
+이 함수는 페이지가 렌더링 될 때마다 호출되며, 페이지의 메타데이터를 동적으로 생성할 수 있습니다.
+```
+
+  - route handler: 특정 경로에 대한 사용자 정의 요청 처리기를 생성하기 위해 사용
+```
+2) route handler
+/(...api path...)/route.js 파일에서 HTTP 메서드를 처리하는 서버 측 로직 생성
+
+  2-1) 라우트 핸들러(route handler)란?
+  라우트 핸들러는 Next.js에서 제공하는 기능으로 특정 경로에 대한 사용자 정의 요청 처리기를 생성할 수 있다.
+  API 라우트와 유사한 역할을 하지만, pages 디렉토리가 아닌 app 디렉토리에서 작동하는 것이 특징입니다.
+
+  2-2) 필요성
+  - 통합된 경로 관리: route.js 파일을 사용하여 각 경로에 대한 로직을 중앙에서 관리할 수 있으며,
+    API 라우트처럼 HTTP 메서드(GET, POST 등)를 직접 처리할 수 있습니다.
+  - 성능 최적화: 캐싱과 같은 기능을 이용하여 네트워크 요청의 부하를 줄이고, 응답 속도를 개선할 수 있습니다.
+  - 보안 강화: 입력 검증, 인증과 같은 보안 관련 처리를 라우트 핸들러에서 수행함으로써 보안을 강화할 수 있습니다.
+  - 유연한 응답 구성: 다양한 HTTP 상태 코드와 헤더를 설정하여, 요청에 따른 정교한 응답을 구성할 수 있습니다.
+
+라우트 핸들러는 Next.js 애플리케이션에서 백엔드 로직을 효율적으로 관리하고 최적화할 수 있도록 합니다.
+```
 
 
 ## Folder Structure 📂
@@ -47,19 +83,21 @@ pnpm create next-app (project name)
 ```
 /src
 +-- app/
+|   +-- api/
 |   +-- components/
 |   |   +-- common/
 |   |   +-- faq/
 |   +-- (route)/
 |   |   +-- faq/
 |   +-- styles/
-|   +-- utils/
++-- mocks/
+|   +-- db.json
 ```
 
-- `components/`: 
-- `(route)/`: 
-- `styles/`: 
-- `utils/`: 
+- `(route)/`: set `page.js` file to route pages as file path
+- `styles/`: common style sheet and variables
+- `api/`: set `route.js` file to define api
+- `mocks/`: set data json file
 
 
 ## Convention
@@ -119,16 +157,6 @@ npm install
 
 ```bash
 npm run dev
-# or
-pnpm dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
-
-
-
-### 3. start the JSON server:
-
-```bash
-json-server --watch db.json --port 3030
-```
+Open http://localhost:3000 to browse the results.

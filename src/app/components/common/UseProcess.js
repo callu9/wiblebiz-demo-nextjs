@@ -1,12 +1,12 @@
 import "./common.scss";
 export default function UseProcess() {
 	return (
-		<>
+		<div className="use-process">
 			<h2 className="heading-2">서비스 문의</h2>
 			<div className="inquiry-info">
 				<a
 					className="btn-xxlg btn-tertiary"
-					href="/assets/pdf/proposal.pdf"
+					href="http://localhost:3000/assets/pdf/proposal.pdf"
 					target="_blank"
 					download="위블비즈 상품제안서">
 					<i className="ic download" />
@@ -58,6 +58,6 @@ export default function UseProcess() {
 					</span>
 				</li>
 			</ol>
-		</>
+		</div>
 	);
 }

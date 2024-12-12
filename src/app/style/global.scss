@@ -107,7 +107,7 @@ a {
 	cursor: pointer;
 }
 ul,
-ol {
+ol:not(.order-list) {
 	list-style: none;
 	margin: 0;
 	padding: 0;

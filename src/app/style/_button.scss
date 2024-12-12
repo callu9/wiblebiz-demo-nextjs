@@ -1,5 +1,5 @@
-// button,
-.btn-medium {
+.btn-xlg,
+.btn-xxlg {
 	gap: 8px;
 	display: flex;
 	align-items: center;
@@ -17,14 +17,20 @@
 		height: 32px;
 	}
 }
-.btn-small {
+.btn-xlg {
 	height: 48px;
 	padding: 0 1em;
 	font-size: 14px;
 }
-.btn-large {
+.btn-xxlg {
 	height: 80px;
 	font-size: 18px;
+	> span > em {
+		display: block;
+		font-size: 14px;
+		font-weight: 400;
+		color: var(--gray-500);
+	}
 }
 .btn-primary {
 	background-color: var(--mint-900);

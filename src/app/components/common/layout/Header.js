@@ -13,7 +13,7 @@ export default function Header() {
 		{ text: "상담문의", href: "/counsel" },
 	];
 	useEffect(() => {
-		const idx = MENU_LIST.findIndex((menu) => menu.href === window.location.pathname);
+		const idx = MENU_LIST.findIndex((menu) => menu.href === window?.location.pathname);
 		setMenuIdx(idx);
 	}, [window?.location]);
 	return (

@@ -1,6 +1,9 @@
+import React from "react";
+
 import AppDownload from "@/app/components/common/AppDownload";
 import UseProcess from "@/app/components/common/UseProcess";
 import FaqSearchArea from "@/app/components/faq/FaqSearchArea";
+import { fetchFaqCategory } from "../../api/faq/category/route";
 import "./style.scss";
 
 export async function generateMetadata(props) {
@@ -20,30 +23,19 @@ export async function generateMetadata(props) {
 	};
 	return DATA[curr];
 }
-export default async function FaqMain() {
+async function FaqMain(props) {
+	const { tab } = await props.searchParams;
+	const toggleList = await fetchFaqCategory(tab);
 	return (
-		<div className="content page-faq grid gaㅔ-64">
+		<div className="content page-faq">
 			<div className="header flex upper-lower">
 				<h1>자주 묻는 질문</h1>
 				<em>궁금하신 내용을 빠르게 찾아보세요.</em>
 			</div>
-			<FaqSearchArea />
+			<FaqSearchArea {...{ tab, toggleList }} />
 			<UseProcess />
 			<AppDownload />
-			<dialog className="dialog-wrapper dialog-error" id="error_faq">
-				<div className="dialog-body" style={{ marginTop: "35px" }}>
-					<p className="message">검색어는 2글자 이상 입력해주세요.</p>
-					<div className="button-group">
-						<button
-							type="button"
-							className="btn-xlg btn-tertiary"
-							// onClick={() => document.querySelector("#error_faq")?.smoothClose()}
-						>
-							확인
-						</button>
-					</div>
-				</div>
-			</dialog>
 		</div>
 	);
 }
+export default FaqMain;

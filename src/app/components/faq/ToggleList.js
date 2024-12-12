@@ -1,13 +1,13 @@
-export default function ToggleList({ categoryID = "ALL", setFilter, toggleList = [] }) {
+export default function ToggleList({ filter, setFilter, toggleList = [] }) {
 	return (
 		toggleList.length > 0 && (
-			<div className="filter">
+			<div className="toggle-list">
 				<label>
 					<input
 						type="radio"
 						name="filter"
-						checked={categoryID === "ALL"}
-						onChange={() => setFilter({ categoryID: "ALL", page: 1 })}
+						checked={filter.categoryID === "ALL"}
+						onChange={() => setFilter({ ...filter, categoryID: "ALL", offset: 0 })}
 					/>
 					<i>전체</i>
 				</label>
@@ -16,8 +16,8 @@ export default function ToggleList({ categoryID = "ALL", setFilter, toggleList =
 						<input
 							type="radio"
 							name="filter"
-							checked={categoryID === item.categoryID}
-							onChange={() => setFilter({ categoryID: item.categoryID, page: 1 })}
+							checked={filter.categoryID === item.categoryID}
+							onChange={() => setFilter({ ...filter, categoryID: item.categoryID, offset: 0 })}
 						/>
 						<i>{item.name}</i>
 					</label>

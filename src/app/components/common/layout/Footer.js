@@ -1,21 +1,8 @@
 "use client";
 
-import React, { useRef } from "react";
-import PolicyPopup from "../popup/PolicyPopup";
-import PrivacyPopup from "../popup/PrivacyPopup";
 import "./footer.scss";
 
 export default function Footer() {
-	const policyPopupRef = useRef();
-	const privacyPopupRef = useRef();
-
-	const childPolicyBtnEvent = () => {
-		policyPopupRef.current.openDialog();
-	};
-	const childPrivacyBtnEvent = () => {
-		privacyPopupRef.current.openDialog();
-	};
-
 	function scrollTop(e) {
 		window.scrollTo({ top: 0, behavior: "smooth" });
 		e.preventDefault();
@@ -34,12 +21,10 @@ export default function Footer() {
 				<div className="inner">
 					<div className="information">
 						<div className="util flex right">
-							<button type="button" onClick={childPrivacyBtnEvent}>
+							<button type="button">
 								<strong>개인정보 처리방침</strong>
 							</button>
-							<button type="button" onClick={childPolicyBtnEvent}>
-								이용약관
-							</button>
+							<button type="button">이용약관</button>
 						</div>
 						<address>
 							<span>
@@ -69,8 +54,6 @@ export default function Footer() {
 					</div>
 					<p className="copyright">© 2023 KIA CORP. All Rights Reserved.</p>
 				</div>
-				<PolicyPopup ref={policyPopupRef} />
-				<PrivacyPopup ref={privacyPopupRef} />
 			</footer>
 		</>
 	);

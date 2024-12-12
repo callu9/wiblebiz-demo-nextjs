@@ -10,3 +10,30 @@ h1 + em {
 	font-weight: 400;
 	word-break: keep-all;
 }
+.heading-2 {
+	margin: var(--heading-2-margin);
+	font-size: var(--heading-2);
+	line-height: var(--line-height-sm);
+}
+.heading-4 {
+	display: flex;
+	align-items: center;
+	margin: var(--heading-4-margin);
+	font-size: var(--heading-4);
+	line-height: var(--line-height-sm);
+}
+.heading-4 > .required {
+	width: calc(var(--heading-4) + 6px);
+	height: calc(var(--heading-4) + 6px);
+	font-size: 0;
+	background: url(../assets/icon/ic_required.svg) no-repeat;
+	background-size: auto 100%;
+}
+.heading-info {
+	margin: var(--px-md) 0;
+	font-size: var(--heading-info);
+	line-height: var(--line-height-sm);
+}
+.heading-info > em {
+	color: var(--mint-900);
+}

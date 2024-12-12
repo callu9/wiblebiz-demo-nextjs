@@ -1,25 +1,26 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 export default function SearchResult({
 	tab,
+	filter,
 	isLoading = false,
 	data: faqList,
 	next = 0,
 	onClickMore,
 }) {
 	const [focused, setFocused] = useState();
+	useEffect(() => {
+		setFocused();
+	}, [filter.categoryID]);
 	const FaqListItem = ({ item }) => {
 		return (
 			<li
 				className={focused === item.id ? "active show" : ""}
-				onClick={() => {
-					// if (!isOpened) apis.faqViewCout(item.id);
-					setFocused(focused === item.id ? undefined : item.id);
-				}}>
+				onClick={() => setFocused(focused === item.id ? undefined : item.id)}>
 				<h4 className="a">
-					<button type="button" data-ui-click="dropdown-toggle">
+					<button type="button">
 						{tab === "USAGE" && <em>{item.categoryName}</em>}
 						<em>{item.subCategoryName}</em>
 						<strong>{item.question}</strong>
@@ -33,11 +34,7 @@ export default function SearchResult({
 	};
 	return (
 		<>
-			{isLoading ? (
-				<div className="loading-indicator">
-					<i></i> 불러오는 중입니다.
-				</div>
-			) : faqList?.length > 0 ? (
+			{faqList?.length > 0 ? (
 				<ul className="faq-list">
 					{faqList.map((item) => (
 						<FaqListItem item={item} key={item.id} />
@@ -48,8 +45,13 @@ export default function SearchResult({
 					<p>검색결과가 없습니다.</p>
 				</div>
 			)}
-			{next > 0 && (
-				<button type="button" className="list-more flex" onClick={onClickMore}>
+			{isLoading && (
+				<div className="loading-indicator">
+					<i></i> 불러오는 중입니다.
+				</div>
+			)}
+			{!isLoading && next > 0 && (
+				<button type="button" className="list-more" onClick={onClickMore}>
 					<i></i>더보기
 				</button>
 			)}
