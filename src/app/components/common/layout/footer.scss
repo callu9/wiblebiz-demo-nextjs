@@ -1,126 +1,3 @@
-footer {
-	position: relative;
-	color: var(--gray-400);
-	background-color: var(--midnight-900);
-	> .inner {
-		display: flex;
-		justify-content: space-between;
-		align-items: center;
-		flex-direction: row-reverse;
-		max-width: 1660px;
-		min-height: 176px;
-		font-size: 14px;
-		line-height: 24px;
-		> .information {
-			> .util {
-				// justify-content: flex-end;
-				margin-bottom: 10px;
-				> button {
-					background: transparent;
-					margin-left: 24px;
-					font-size: 16px;
-					line-height: 24px;
-					color: #fff;
-					> strong {
-						font-weight: 600;
-					}
-				}
-				> button:hover {
-					text-decoration: underline;
-				}
-			}
-			> address {
-				text-align: right;
-				br:nth-of-type(1),
-				br:nth-of-type(2),
-				br:nth-of-type(3),
-				br:nth-of-type(4),
-				br:nth-of-type(5) {
-					display: none;
-				}
-				> span {
-					display: inline-flex;
-					margin-left: 12px;
-					> em {
-						margin-left: 12px;
-					}
-					> i,
-					> a {
-						margin-left: 4px;
-						color: inherit;
-					}
-					> a {
-						text-decoration: underline;
-					}
-				}
-			}
-		}
-		> .copyright:before {
-			content: "";
-			display: block;
-			height: 56px;
-			margin-bottom: 2px;
-			background-image: url(../../../assets/images/logo_kia.svg);
-			background-repeat: no-repeat;
-			background-size: auto 100%;
-		}
-	}
-	@media (max-width: 743px) {
-		/* Mobile */
-		> .inner {
-			flex-direction: column;
-			padding-top: 18px;
-			padding-bottom: 29px;
-			> .information {
-				> .util > button {
-					margin-right: 16px;
-					line-height: 48px;
-				}
-				> address {
-					br:nth-of-type(1),
-					br:nth-of-type(2),
-					br:nth-of-type(3),
-					br:nth-of-type(4) {
-						display: block;
-					}
-					> span {
-						margin-right: 12px;
-					}
-				}
-			}
-			.copyright:before {
-				height: 32px;
-				margin-bottom: 1px;
-			}
-		}
-	}
-	@media (min-width: 744px) and (max-width: 1023px) {
-		/* Tablet */
-		> .inner {
-			flex-direction: column;
-			padding-top: 34px;
-			padding-bottom: 44px;
-			> .information {
-				> .util > button {
-					margin-right: 24px;
-					line-height: 52px;
-				}
-				> address {
-					br:nth-of-type(2),
-					br:nth-of-type(4) {
-						display: block;
-					}
-					> span {
-						margin-right: 12px;
-					}
-				}
-			}
-			> .copyright:before {
-				height: 48px;
-			}
-		}
-	}
-}
 .quick-util {
 	z-index: 99;
 	position: sticky;
@@ -156,18 +33,17 @@ footer {
 			transition-property: width, height, margin, background-position, opacity;
 			transition-duration: 0.4s;
 			transition-timing-function: var(--cubic-bezier-primary);
+			:active {
+				background-position: 50% 60%;
+				transition: all 0s;
+			}
 		}
-		> button:active {
-			background-position: 50% 60%;
-			transition: all 0s;
-		}
-		// button.share {
-		// 	background-image: url(../../../assets/icon/ic_share.svg);
-		// }
 		> button.top {
 			background-image: url(../../../assets/icon/ic_top.svg);
 		}
-		@media (max-width: 743px) {
+	}
+	@media (max-width: 743px) {
+		> .inner {
 			right: 16px;
 			bottom: 24px;
 			--size: 40px;
@@ -175,7 +51,9 @@ footer {
 				background-size: 20px;
 			}
 		}
-		@media (min-width: 744px) and (max-width: 1023px) {
+	}
+	@media (min-width: 744px) and (max-width: 1023px) {
+		> .inner {
 			right: 24px;
 			bottom: 32px;
 			--size: 48px;
@@ -183,21 +61,147 @@ footer {
 				background-size: 24px;
 			}
 		}
-		@media (min-width: 1024px) and (max-width: 1439px) {
+	}
+	@media (min-width: 1024px) and (max-width: 1439px) {
+		> .inner {
 			right: 24px;
 			bottom: 32px;
 		}
 	}
 }
-// body:not(.main) .quick-util:not(.active) > .inner > button.top,
-// body.main .container[data-ui-current="0"] ~ .quick-util > .inner > button.top,
-// body.main .container:not([data-ui-current]) ~ .quick-util > .inner > button.top {
-// 	width: 0;
-// 	height: 0;
-// 	margin: 0;
-// 	background-position: 50% 100%;
-// 	opacity: 0;
-// 	transition-property: width, height, margin, background-position, opacity;
-// 	transition-duration: 0.4s;
-// 	transition-timing-function: var(--cubic-bezier-primary);
-// }
+
+footer {
+	position: relative;
+	padding: 0 var(--side-padding);
+	color: var(--gray-400);
+	background-color: var(--midnight-900);
+	@media (max-width: 743px) {
+		--font-md: 12px;
+		--font-lg: 14px;
+		--line-height: 22px;
+	}
+	@media (min-width: 744px) {
+		--font-md: 14px;
+		--font-lg: 16px;
+		--line-height: 24px;
+	}
+	> .inner {
+		display: flex;
+		justify-content: space-between;
+		max-width: var(--max-width);
+		height: var(--footer-height);
+		margin: 0 auto;
+		font-size: var(--font-md);
+		line-height: var(--line-height);
+		> .information {
+			> .util > button {
+				font-size: var(--font-lg);
+				color: #fff;
+			}
+			@media (hover: hover) and (pointer: fine) {
+				> .util > button:hover {
+					text-decoration: underline;
+				}
+			}
+			> address > span {
+				display: inline-flex;
+				> em {
+					margin-left: 12px;
+				}
+				> i,
+				> a {
+					margin-left: 4px;
+				}
+				> a {
+					color: inherit;
+					text-decoration: underline;
+				}
+			}
+		}
+		> .copyright:before {
+			content: "";
+			display: block;
+			background-image: url(../../../assets/images/logo_kia.svg);
+			background-repeat: no-repeat;
+			background-size: auto 100%;
+		}
+		@media (max-width: 743px) {
+			flex-direction: column;
+			padding-top: 18px;
+			padding-bottom: 29px;
+			> .information {
+				> .util > button {
+					margin-right: 16px;
+					line-height: 48px;
+				}
+				> address {
+					> span {
+						margin-right: 12px;
+					}
+					br:nth-of-type(5) {
+						display: none;
+					}
+				}
+			}
+			> .copyright:before {
+				height: 32px;
+				margin-bottom: 1px;
+			}
+		}
+		@media (min-width: 744px) and (max-width: 1023px) {
+			flex-direction: column;
+			padding-top: 34px;
+			padding-bottom: 44px;
+			> .information {
+				> .util > button {
+					margin-right: 24px;
+					line-height: 52px;
+				}
+				> address {
+					> span {
+						margin-right: 12px;
+					}
+					br:nth-of-type(1),
+					br:nth-of-type(3),
+					br:nth-of-type(5) {
+						display: none;
+					}
+				}
+			}
+			> .copyright:before {
+				height: 48px;
+			}
+		}
+		@media (min-width: 1024px) {
+			flex-direction: row-reverse;
+			align-items: center;
+			> .information {
+				> .util {
+					justify-content: flex-end;
+					margin-bottom: 10px;
+					> button {
+						margin-left: 24px;
+						line-height: var(--line-height);
+					}
+				}
+				> address {
+					text-align: right;
+					> span {
+						margin-left: 12px;
+					}
+					br:nth-of-type(1),
+					br:nth-of-type(2),
+					br:nth-of-type(3),
+					br:nth-of-type(4),
+					br:nth-of-type(5) {
+						display: none;
+					}
+				}
+			}
+			> .copyright:before {
+				height: 56px;
+				margin-bottom: 2px;
+			}
+		}
+	}
+}

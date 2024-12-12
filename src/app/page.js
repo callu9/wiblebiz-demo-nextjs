@@ -3,7 +3,7 @@ import Image from "next/image";
 export default function Home() {
 	return (
 		<div className="container flex upper-lower gap-56">
-			<div className="flex upper-lower gap-24">
+			<div className="flex upper-lower gap-24" style={{ paddingTop: "36px" }}>
 				<Image width={180} height={40} src="./next.svg" alt="Next.js logo" />
 				<h2>Kia Wiblebiz Demo Project with Next.js</h2>
 			</div>

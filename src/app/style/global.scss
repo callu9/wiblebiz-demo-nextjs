@@ -50,8 +50,14 @@ body {
 	font-family: Kia Signature Fix, Arial, sans-serif, Hevetica;
 	color: var(--midnight-900);
 	> header,
-	footer {
+	> footer {
 		padding: 0 130px;
+		@media (max-width: 1023px) {
+			padding: 0 48px;
+		}
+		@media (max-width: 743px) {
+			padding: 0 24px;
+		}
 	}
 }
 * {

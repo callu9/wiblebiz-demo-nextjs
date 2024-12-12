@@ -1,10 +1,13 @@
 "use client";
 
-import { useEffect, useState } from "react";
 import Link from "next/link";
+import { useRouter } from "next/navigation";
+import { useEffect, useState } from "react";
 import "./header.scss";
 
 export default function Header() {
+	const router = useRouter();
+	const [isOpened, setIsOpened] = useState(false);
 	const [menuIdx, setMenuIdx] = useState(-1);
 	const MENU_LIST = [
 		{ text: "서비스 소개", href: "/guide" },
@@ -13,20 +16,24 @@ export default function Header() {
 		{ text: "상담문의", href: "/counsel" },
 	];
 	useEffect(() => {
-		const idx = MENU_LIST.findIndex((menu) => menu.href === window?.location.pathname);
+		const idx = MENU_LIST.findIndex((menu) => menu.href === router.pathname);
 		setMenuIdx(idx);
-	}, [window?.location]);
+	}, [router.pathname]);
+	function onClickMenu(idx) {
+		setMenuIdx(idx);
+		setIsOpened(false);
+	}
 	return (
-		<header>
+		<header className={isOpened ? "nav-opened" : ""}>
 			<div className="header-wrapper flex sides">
-				<Link href="/" className="logo" onClick={() => setMenuIdx(-1)}>
+				<Link href="/" className="logo" onClick={() => onClickMenu(-1)}>
 					Wible BIZ
 				</Link>
 				<nav>
 					<ul className="flex right">
 						{MENU_LIST.map((menu, idx) => (
 							<li key={menu.href} className={menuIdx === idx ? "active" : undefined}>
-								<Link href={menu.href} onClick={() => setMenuIdx(idx)}>
+								<Link href={menu.href} onClick={() => onClickMenu(idx)}>
 									{menu.text}
 								</Link>
 							</li>
@@ -34,7 +41,7 @@ export default function Header() {
 					</ul>
 				</nav>
 				<span className="util">
-					<button type="button" className="nav" data-ui-click="nav-toggle">
+					<button type="button" className="nav" onClick={() => setIsOpened(!isOpened)}>
 						메뉴 열기/닫기
 					</button>
 				</span>

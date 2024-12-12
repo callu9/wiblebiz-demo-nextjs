@@ -20,7 +20,7 @@ export default function Footer() {
 			<footer>
 				<div className="inner">
 					<div className="information">
-						<div className="util flex right">
+						<div className="util flex left">
 							<button type="button">
 								<strong>개인정보 처리방침</strong>
 							</button>
