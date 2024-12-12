@@ -15,6 +15,7 @@ pnpm create next-app (project name)
 - 구현
   - [x] [주어진 화면](https://wiblebiz.kia.com/FAQ)을 최대한 비슷하게 제작
   - [x] 스타일링은 전처리기(SASS) 활용
+  - [ ] 애니메이션 구현
 - API
   - [x] 프로젝트 내부에 목업데이터 형태로 가지고 시뮬레이션
     - 필요한 API 응답 결과는 주어진 화면 내 개발자도구(크롬 기준) > 네트워크 탭 > Fetch/XHR 에서 참고
