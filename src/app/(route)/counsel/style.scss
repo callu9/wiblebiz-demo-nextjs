@@ -1,0 +1,17 @@
+.reduced {
+	max-width: 816px;
+}
+.counsel-form {
+	> .header {
+		height: var(--h1-height);
+		text-align: center;
+	}
+	> form {
+		> .board-write {
+			border-top: 2px solid var(--midnight-900);
+			> .input-field > input {
+				width: 100%;
+			}
+		}
+	}
+}

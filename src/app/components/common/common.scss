@@ -48,6 +48,10 @@
 			> span {
 				position: relative;
 				display: block;
+				> strong:before {
+					content: counter(li) ". ";
+					counter-increment: li;
+				}
 			}
 		}
 		> li:not(:first-child) > span:before {
