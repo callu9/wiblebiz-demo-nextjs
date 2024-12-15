@@ -3,6 +3,7 @@
 import { fetchFaqList } from "@/app/api/faq/route";
 import { useRouter } from "next/navigation";
 import { useEffect, useState } from "react";
+import Modal from "../common/Modal";
 import SearchForm from "./search/SearchForm";
 import SearchResult from "./search/SearchResult";
 import TabList from "./TabList";
@@ -62,19 +63,7 @@ export default function FaqSearchArea({ tab = "CONSULT", toggleList }) {
 				<SearchResult {...{ tab, filter, isLoading, ...searchResult, onClickMore }} />
 			</div>
 			{isError && (
-				<div className="dialog-wrapper dialog-error grid" id="error_faq">
-					<div className="dialog-body surface-primary grid gap-24">
-						<p>검색어는 2글자 이상 입력해주세요.</p>
-						<div className="button-group grid">
-							<button
-								type="button"
-								className="btn-xxlg btn-tertiary"
-								onClick={() => setIsError(false)}>
-								확인
-							</button>
-						</div>
-					</div>
-				</div>
+				<Modal text="검색어는 2글자 이상 입력해주세요." onClose={() => setIsError(false)} />
 			)}
 		</>
 	);
