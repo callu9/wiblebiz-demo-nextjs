@@ -46,7 +46,7 @@ pnpm create next-app (project name)
 #### (1) 상담 문의 `/counsel`
   - [ ] 입력 및 초기화
   - [x] 버튼 비활성화 로직 구성
-  - [ ] 제출 및 에러 팝업 구성
+  - [x] 제출 및 에러 팝업 구성
 
 ## TIL 📑
   - `generateMetadata`: page props에 따른 dynamic metadata 생성을 위해 사용
