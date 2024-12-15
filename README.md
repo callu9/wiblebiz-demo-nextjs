@@ -41,7 +41,7 @@ pnpm create next-app (project name)
     - [x] 앱 다운로드 안내
 
 
-### 2. 우선순위 중 ⭐️⭐️⭐️
+### 2. 우선순위 중 ⭐️⭐️
 
 #### (1) 상담 문의 `/counsel`
   - [ ] 입력 및 초기화
